@@ -1,185 +1,700 @@
-{
-swagger: "2.0",
-info: {
-title: "identity",
-version: "Unknown"
-},
-consumes: [
-"application/json"
-],
-produces: [
-"application/json"
-],
-paths: {
-/: {
-get: {
-operationId: "getVersions-v2",
-summary: "List versions",
-description: "Lists information about all Identity API versions. ",
-produces: [
-"application/json"
-],
-responses: {
-200: {
-description: "200 response",
-examples: {
-application/json: "{ "versions": { "values": [ { "status": "stable", "updated": "2013-03-06T00:00:00Z", "media-types": [ { "base": "application/json", "type": "application/vnd.openstack.identity-v3+json" }, { "base": "application/xml", "type": "application/vnd.openstack.identity-v3+xml" } ], "id": "v3.0", "links": [ { "href": "http://192.168.122.176:5000/v3/", "rel": "self" } ] }, { "status": "stable", "updated": "2014-04-17T00:00:00Z", "media-types": [ { "base": "application/json", "type": "application/vnd.openstack.identity-v2.0+json" }, { "base": "application/xml", "type": "application/vnd.openstack.identity-v2.0+xml" } ], "id": "v2.0", "links": [ { "href": "http://192.168.122.176:5000/v2.0/", "rel": "self" }, { "href": "http://docs.openstack.org/", "type": "text/html", "rel": "describedby" } ] } ] } }"
-}
-}
-}
-}
-},
-/v2.0: {
-get: {
-operationId: "getVersionInfo-v2.0",
-summary: "Show version details",
-description: "Shows details for the Identity API v2.0. ",
-produces: [
-"application/json"
-],
-responses: {
-200: {
-description: "200 203 response",
-examples: {
-application/json: "{ "version": { "status": "stable", "updated": "2013-03-06T00:00:00Z", "media-types": [ { "base": "application/json", "type": "application/vnd.openstack.identity-v3+json" }, { "base": "application/xml", "type": "application/vnd.openstack.identity-v3+xml" } ], "id": "v3.0", "links": [ { "href": "http://23.253.228.211:35357/v3/", "rel": "self" } ] } }"
-}
-},
-203: {
-description: "200 203 response",
-examples: {
-application/json: "{ "version": { "status": "stable", "updated": "2013-03-06T00:00:00Z", "media-types": [ { "base": "application/json", "type": "application/vnd.openstack.identity-v3+json" }, { "base": "application/xml", "type": "application/vnd.openstack.identity-v3+xml" } ], "id": "v3.0", "links": [ { "href": "http://23.253.228.211:35357/v3/", "rel": "self" } ] } }"
-}
-}
-}
-}
-},
-/v2.0/extensions: {
-get: {
-operationId: "listExtensions-v2.0",
-summary: "List extensions",
-description: "Lists available extensions. ",
-produces: [
-"application/json"
-],
-responses: {
-200: {
-description: "200 203 response",
-examples: {
-application/json: "{ "extensions": { "values": [ { "updated": "2013-07-07T12:00:0-00:00", "name": "OpenStack S3 API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/s3tokens/v1.0", "alias": "s3tokens", "description": "OpenStack S3 API." }, { "updated": "2013-07-23T12:00:0-00:00", "name": "OpenStack Keystone Endpoint Filter API", "links": [ { "href": "https://github.com/openstack/identity-api/blob/master/openstack-identity-api/v3/src/markdown/identity-api-v3-os-ep-filter-ext.md", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-EP-FILTER/v1.0", "alias": "OS-EP-FILTER", "description": "OpenStack Keystone Endpoint Filter API." }, { "updated": "2013-12-17T12:00:0-00:00", "name": "OpenStack Federation APIs", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-FEDERATION/v1.0", "alias": "OS-FEDERATION", "description": "OpenStack Identity Providers Mechanism." }, { "updated": "2013-07-11T17:14:00-00:00", "name": "OpenStack Keystone Admin", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0", "alias": "OS-KSADM", "description": "OpenStack extensions to Keystone v2.0 API enabling Administrative Operations." }, { "updated": "2014-01-20T12:00:0-00:00", "name": "OpenStack Simple Certificate API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-SIMPLE-CERT/v1.0", "alias": "OS-SIMPLE-CERT", "description": "OpenStack simple certificate retrieval extension" }, { "updated": "2013-07-07T12:00:0-00:00", "name": "OpenStack EC2 API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-EC2/v1.0", "alias": "OS-EC2", "description": "OpenStack EC2 Credentials backend." } ] } }"
-}
-},
-203: {
-description: "200 203 response",
-examples: {
-application/json: "{ "extensions": { "values": [ { "updated": "2013-07-07T12:00:0-00:00", "name": "OpenStack S3 API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/s3tokens/v1.0", "alias": "s3tokens", "description": "OpenStack S3 API." }, { "updated": "2013-07-23T12:00:0-00:00", "name": "OpenStack Keystone Endpoint Filter API", "links": [ { "href": "https://github.com/openstack/identity-api/blob/master/openstack-identity-api/v3/src/markdown/identity-api-v3-os-ep-filter-ext.md", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-EP-FILTER/v1.0", "alias": "OS-EP-FILTER", "description": "OpenStack Keystone Endpoint Filter API." }, { "updated": "2013-12-17T12:00:0-00:00", "name": "OpenStack Federation APIs", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-FEDERATION/v1.0", "alias": "OS-FEDERATION", "description": "OpenStack Identity Providers Mechanism." }, { "updated": "2013-07-11T17:14:00-00:00", "name": "OpenStack Keystone Admin", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0", "alias": "OS-KSADM", "description": "OpenStack extensions to Keystone v2.0 API enabling Administrative Operations." }, { "updated": "2014-01-20T12:00:0-00:00", "name": "OpenStack Simple Certificate API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-SIMPLE-CERT/v1.0", "alias": "OS-SIMPLE-CERT", "description": "OpenStack simple certificate retrieval extension" }, { "updated": "2013-07-07T12:00:0-00:00", "name": "OpenStack EC2 API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/OS-EC2/v1.0", "alias": "OS-EC2", "description": "OpenStack EC2 Credentials backend." } ] } }"
-}
-}
-}
-}
-},
-/v2.0/extensions/{alias}: {
-parameters: [
-{
-name: "alias",
-required: true,
-in: "path",
-type: "string",
-description: "The extension name. "
-}
-],
-get: {
-operationId: "getExtension-v2.0",
-summary: "Get extension details",
-description: "Gets detailed information for a specified extension. ",
-produces: [
-"application/json"
-],
-responses: {
-200: {
-description: "200 203 response",
-examples: {
-application/json: "{ "extension": { "updated": "2013-07-07T12:00:0-00:00", "name": "OpenStack S3 API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/s3tokens/v1.0", "alias": "s3tokens", "description": "OpenStack S3 API." } }"
-}
-},
-203: {
-description: "200 203 response",
-examples: {
-application/json: "{ "extension": { "updated": "2013-07-07T12:00:0-00:00", "name": "OpenStack S3 API", "links": [ { "href": "https://github.com/openstack/identity-api", "type": "text/html", "rel": "describedby" } ], "namespace": "http://docs.openstack.org/identity/api/ext/s3tokens/v1.0", "alias": "s3tokens", "description": "OpenStack S3 API." } }"
-}
-}
-}
-}
-},
-/v2.0/tokens: {
-post: {
-operationId: "authenticate-v2.0",
-summary: "Authenticate",
-description: "Authenticates and generates a token. ",
-produces: [
-"application/json"
-],
-responses: {
-200: {
-description: "200 203 response",
-examples: {
-application/json: "{ "access": { "token": { "issued_at": "2014-01-30T15:30:58.819584", "expires": "2014-01-31T15:30:58Z", "id": "aaaaa-bbbbb-ccccc-dddd", "tenant": { "enabled": true, "description": null, "name": "demo", "id": "fc394f2ab2df4114bde39905f800dc57" } }, "serviceCatalog": [ { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", "region": "RegionOne", "publicURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", "id": "2dad48f09e2a447a9bf852bcd93548ef" } ], "type": "compute", "name": "nova" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:9696/", "region": "RegionOne", "publicURL": "http://23.253.72.207:9696/", "internalURL": "http://23.253.72.207:9696/", "id": "97c526db8d7a4c88bbb8d68db1bdcdb8" } ], "type": "network", "name": "neutron" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", "region": "RegionOne", "publicURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", "id": "93f86dfcbba143a39a33d0c2cd424870" } ], "type": "volumev2", "name": "cinder" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8774/v3", "region": "RegionOne", "publicURL": "http://23.253.72.207:8774/v3", "internalURL": "http://23.253.72.207:8774/v3", "id": "3eb274b12b1d47b2abc536038d87339e" } ], "type": "computev3", "name": "nova" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:3333", "region": "RegionOne", "publicURL": "http://23.253.72.207:3333", "internalURL": "http://23.253.72.207:3333", "id": "957f1e54afc64d33a62099faa5e980a2" } ], "type": "s3", "name": "s3" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:9292", "region": "RegionOne", "publicURL": "http://23.253.72.207:9292", "internalURL": "http://23.253.72.207:9292", "id": "27d5749f36864c7d96bebf84a5ec9767" } ], "type": "image", "name": "glance" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", "region": "RegionOne", "publicURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", "id": "37c83a2157f944f1972e74658aa0b139" } ], "type": "volume", "name": "cinder" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8773/services/Admin", "region": "RegionOne", "publicURL": "http://23.253.72.207:8773/services/Cloud", "internalURL": "http://23.253.72.207:8773/services/Cloud", "id": "289b59289d6048e2912b327e5d3240ca" } ], "type": "ec2", "name": "ec2" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8080", "region": "RegionOne", "publicURL": "http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57", "id": "16b76b5e5b7d48039a6e4cc3129545f3" } ], "type": "object-store", "name": "swift" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:35357/v2.0", "region": "RegionOne", "publicURL": "http://23.253.72.207:5000/v2.0", "internalURL": "http://23.253.72.207:5000/v2.0", "id": "26af053673df4ef3a2340c4239e21ea2" } ], "type": "identity", "name": "keystone" } ], "user": { "username": "demo", "roles_links": [], "id": "9a6590b2ab024747bc2167c4e064d00d", "roles": [ { "name": "Member" }, { "name": "anotherrole" } ], "name": "demo" }, "metadata": { "is_admin": 0, "roles": [ "7598ac3c634d4c3da4b9126a5f67ca2b", "f95c0ab82d6045d9805033ee1fbc80d4" ] } } }"
-}
-},
-203: {
-description: "200 203 response",
-examples: {
-application/json: "{ "access": { "token": { "issued_at": "2014-01-30T15:30:58.819584", "expires": "2014-01-31T15:30:58Z", "id": "aaaaa-bbbbb-ccccc-dddd", "tenant": { "enabled": true, "description": null, "name": "demo", "id": "fc394f2ab2df4114bde39905f800dc57" } }, "serviceCatalog": [ { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", "region": "RegionOne", "publicURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57", "id": "2dad48f09e2a447a9bf852bcd93548ef" } ], "type": "compute", "name": "nova" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:9696/", "region": "RegionOne", "publicURL": "http://23.253.72.207:9696/", "internalURL": "http://23.253.72.207:9696/", "id": "97c526db8d7a4c88bbb8d68db1bdcdb8" } ], "type": "network", "name": "neutron" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", "region": "RegionOne", "publicURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57", "id": "93f86dfcbba143a39a33d0c2cd424870" } ], "type": "volumev2", "name": "cinder" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8774/v3", "region": "RegionOne", "publicURL": "http://23.253.72.207:8774/v3", "internalURL": "http://23.253.72.207:8774/v3", "id": "3eb274b12b1d47b2abc536038d87339e" } ], "type": "computev3", "name": "nova" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:3333", "region": "RegionOne", "publicURL": "http://23.253.72.207:3333", "internalURL": "http://23.253.72.207:3333", "id": "957f1e54afc64d33a62099faa5e980a2" } ], "type": "s3", "name": "s3" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:9292", "region": "RegionOne", "publicURL": "http://23.253.72.207:9292", "internalURL": "http://23.253.72.207:9292", "id": "27d5749f36864c7d96bebf84a5ec9767" } ], "type": "image", "name": "glance" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", "region": "RegionOne", "publicURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57", "id": "37c83a2157f944f1972e74658aa0b139" } ], "type": "volume", "name": "cinder" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8773/services/Admin", "region": "RegionOne", "publicURL": "http://23.253.72.207:8773/services/Cloud", "internalURL": "http://23.253.72.207:8773/services/Cloud", "id": "289b59289d6048e2912b327e5d3240ca" } ], "type": "ec2", "name": "ec2" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:8080", "region": "RegionOne", "publicURL": "http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57", "internalURL": "http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57", "id": "16b76b5e5b7d48039a6e4cc3129545f3" } ], "type": "object-store", "name": "swift" }, { "endpoints_links": [], "endpoints": [ { "adminURL": "http://23.253.72.207:35357/v2.0", "region": "RegionOne", "publicURL": "http://23.253.72.207:5000/v2.0", "internalURL": "http://23.253.72.207:5000/v2.0", "id": "26af053673df4ef3a2340c4239e21ea2" } ], "type": "identity", "name": "keystone" } ], "user": { "username": "demo", "roles_links": [], "id": "9a6590b2ab024747bc2167c4e064d00d", "roles": [ { "name": "Member" }, { "name": "anotherrole" } ], "name": "demo" }, "metadata": { "is_admin": 0, "roles": [ "7598ac3c634d4c3da4b9126a5f67ca2b", "f95c0ab82d6045d9805033ee1fbc80d4" ] } } }"
-}
-}
-}
-}
-},
-/v2.0/tenants: {
-parameters: [
-{
-name: "X-Auth-Token",
-required: true,
-in: "header",
-type: "string",
-description: "A valid authentication token. "
-},
-{
-name: "marker",
-required: false,
-in: "query",
-type: "string",
-description: "The ID of the last item in the previous list. "
-},
-{
-name: "limit",
-required: false,
-in: "query",
-type: "integer",
-description: "The page size. "
-}
-],
-get: {
-operationId: "listTenants",
-summary: "List tenants",
-description: "Lists tenants to which the specified token has access. ",
-produces: [
-"application/json"
-],
-responses: {
-200: {
-description: "200 203 response",
-examples: {
-application/json: "{ "tenants_links": [], "tenants": [ { "description": "A description ...", "enabled": true, "id": "1234", "name": "ACME Corp" }, { "description": "A description ...", "enabled": true, "id": "3456", "name": "Iron Works" } ] }"
-}
-},
-203: {
-description: "200 203 response",
-examples: {
-application/json: "{ "tenants_links": [], "tenants": [ { "description": "A description ...", "enabled": true, "id": "1234", "name": "ACME Corp" }, { "description": "A description ...", "enabled": true, "id": "3456", "name": "Iron Works" } ] }"
-}
-}
-}
-}
-}
-}
-}
+swagger: "2.0"
+info:
+  description: "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
+  version: "1.0.0"
+  title: "Swagger Petstore"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "pet"
+  description: "Everything about your Pets"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "store"
+  description: "Access to Petstore orders"
+- name: "user"
+  description: "Operations about user"
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /pet:
+    post:
+      tags:
+      - "pet"
+      summary: "Add a new pet to the store"
+      description: ""
+      operationId: "addPet"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pet object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Pet"
+      responses:
+        405:
+          description: "Invalid input"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+    put:
+      tags:
+      - "pet"
+      summary: "Update an existing pet"
+      description: ""
+      operationId: "updatePet"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pet object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Pet"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+        405:
+          description: "Validation exception"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+  /pet/findByStatus:
+    get:
+      tags:
+      - "pet"
+      summary: "Finds Pets by status"
+      description: "Multiple status values can be provided with comma separated strings"
+      operationId: "findPetsByStatus"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "status"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+          default: "available"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Pet"
+        400:
+          description: "Invalid status value"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+  /pet/findByTags:
+    get:
+      tags:
+      - "pet"
+      summary: "Finds Pets by tags"
+      description: "Muliple tags can be provided with comma separated strings. Use         tag1, tag2, tag3 for testing."
+      operationId: "findPetsByTags"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "tags"
+        in: "query"
+        description: "Tags to filter by"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Pet"
+        400:
+          description: "Invalid tag value"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+      deprecated: true
+  /pet/{petId}:
+    get:
+      tags:
+      - "pet"
+      summary: "Find pet by ID"
+      description: "Returns a single pet"
+      operationId: "getPetById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "petId"
+        in: "path"
+        description: "ID of pet to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Pet"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+      security:
+      - api_key: []
+    post:
+      tags:
+      - "pet"
+      summary: "Updates a pet in the store with form data"
+      description: ""
+      operationId: "updatePetWithForm"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "petId"
+        in: "path"
+        description: "ID of pet that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "name"
+        in: "formData"
+        description: "Updated name of the pet"
+        required: false
+        type: "string"
+      - name: "status"
+        in: "formData"
+        description: "Updated status of the pet"
+        required: false
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+    delete:
+      tags:
+      - "pet"
+      summary: "Deletes a pet"
+      description: ""
+      operationId: "deletePet"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "petId"
+        in: "path"
+        description: "Pet id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+  /pet/{petId}/uploadImage:
+    post:
+      tags:
+      - "pet"
+      summary: "uploads an image"
+      description: ""
+      operationId: "uploadFile"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "petId"
+        in: "path"
+        description: "ID of pet to update"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "additionalMetadata"
+        in: "formData"
+        description: "Additional data to pass to server"
+        required: false
+        type: "string"
+      - name: "file"
+        in: "formData"
+        description: "file to upload"
+        required: false
+        type: "file"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+      security:
+      - petstore_auth:
+        - "write:pets"
+        - "read:pets"
+  /store/inventory:
+    get:
+      tags:
+      - "store"
+      summary: "Returns pet inventories by status"
+      description: "Returns a map of status codes to quantities"
+      operationId: "getInventory"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            additionalProperties:
+              type: "integer"
+              format: "int32"
+      security:
+      - api_key: []
+  /store/order:
+    post:
+      tags:
+      - "store"
+      summary: "Place an order for a pet"
+      description: ""
+      operationId: "placeOrder"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "order placed for purchasing the pet"
+        required: true
+        schema:
+          $ref: "#/definitions/Order"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Order"
+        400:
+          description: "Invalid Order"
+  /store/order/{orderId}:
+    get:
+      tags:
+      - "store"
+      summary: "Find purchase order by ID"
+      description: "For valid response try integer IDs with value >= 1 and <= 10.         Other values will generated exceptions"
+      operationId: "getOrderById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "orderId"
+        in: "path"
+        description: "ID of pet that needs to be fetched"
+        required: true
+        type: "integer"
+        maximum: 10.0
+        minimum: 1.0
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Order"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Order not found"
+    delete:
+      tags:
+      - "store"
+      summary: "Delete purchase order by ID"
+      description: "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors"
+      operationId: "deleteOrder"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "orderId"
+        in: "path"
+        description: "ID of the order that needs to be deleted"
+        required: true
+        type: "integer"
+        minimum: 1.0
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Order not found"
+  /user:
+    post:
+      tags:
+      - "user"
+      summary: "Create user"
+      description: "This can only be done by the logged in user."
+      operationId: "createUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/createWithArray:
+    post:
+      tags:
+      - "user"
+      summary: "Creates list of users with given input array"
+      description: ""
+      operationId: "createUsersWithArrayInput"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "List of user object"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/createWithList:
+    post:
+      tags:
+      - "user"
+      summary: "Creates list of users with given input array"
+      description: ""
+      operationId: "createUsersWithListInput"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "List of user object"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/login:
+    get:
+      tags:
+      - "user"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "The user name for login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "The password for login in clear text"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+        400:
+          description: "Invalid username/password supplied"
+  /user/logout:
+    get:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user session"
+      description: ""
+      operationId: "logoutUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /user/{username}:
+    get:
+      tags:
+      - "user"
+      summary: "Get user by user name"
+      description: ""
+      operationId: "getUserByName"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "The name that needs to be fetched. Use user1 for testing. "
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Invalid username supplied"
+        404:
+          description: "User not found"
+    put:
+      tags:
+      - "user"
+      summary: "Updated user"
+      description: "This can only be done by the logged in user."
+      operationId: "updateUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "name that need to be updated"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Updated user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        400:
+          description: "Invalid user supplied"
+        404:
+          description: "User not found"
+    delete:
+      tags:
+      - "user"
+      summary: "Delete user"
+      description: "This can only be done by the logged in user."
+      operationId: "deleteUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "The name that needs to be deleted"
+        required: true
+        type: "string"
+      responses:
+        400:
+          description: "Invalid username supplied"
+        404:
+          description: "User not found"
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  Order:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      petId:
+        type: "integer"
+        format: "int64"
+      quantity:
+        type: "integer"
+        format: "int32"
+      shipDate:
+        type: "string"
+        format: "date-time"
+      status:
+        type: "string"
+        description: "Order Status"
+        enum:
+        - "placed"
+        - "approved"
+        - "delivered"
+      complete:
+        type: "boolean"
+        default: false
+    xml:
+      name: "Order"
+  Category:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "Category"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      phone:
+        type: "string"
+      userStatus:
+        type: "integer"
+        format: "int32"
+        description: "User Status"
+    xml:
+      name: "User"
+  Tag:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "Tag"
+  Pet:
+    type: "object"
+    required:
+    - "name"
+    - "photoUrls"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      category:
+        $ref: "#/definitions/Category"
+      name:
+        type: "string"
+        example: "doggie"
+      photoUrls:
+        type: "array"
+        xml:
+          name: "photoUrl"
+          wrapped: true
+        items:
+          type: "string"
+      tags:
+        type: "array"
+        xml:
+          name: "tag"
+          wrapped: true
+        items:
+          $ref: "#/definitions/Tag"
+      status:
+        type: "string"
+        description: "pet status in the store"
+        enum:
+        - "available"
+        - "pending"
+        - "sold"
+    xml:
+      name: "Pet"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
