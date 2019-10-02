@@ -28,13 +28,13 @@ schemes:
 - "https"
 - "http"
 paths:
-  /pet:
+  /animale:
     post:
       tags:
-      - "pet"
-      summary: "Add a new pet to the store"
+      - "animale"
+      summary: "Add a new animale to the store"
       description: ""
-      operationId: "addPet"
+      operationId: "addAnimale"
       consumes:
       - "application/json"
       - "application/xml"
@@ -44,23 +44,23 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Pet object that needs to be added to the store"
+        description: "Animale object that needs to be added to the store"
         required: true
         schema:
-          $ref: "#/definitions/Pet"
+          $ref: "#/definitions/Animale"
       responses:
         405:
           description: "Invalid input"
       security:
       - petstore_auth:
-        - "write:pets"
-        - "read:pets"
+        - "write:Animali"
+        - "read:Animali"
     put:
       tags:
       - "pet"
-      summary: "Update an existing pet"
+      summary: "Update an existing animale"
       description: ""
-      operationId: "updatePet"
+      operationId: "updateAnimale"
       consumes:
       - "application/json"
       - "application/xml"
@@ -70,15 +70,15 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Pet object that needs to be added to the store"
+        description: "Animale object that needs to be added to the store"
         required: true
         schema:
-          $ref: "#/definitions/Pet"
+          $ref: "#/definitions/Animali"
       responses:
         400:
           description: "Invalid ID supplied"
         404:
-          description: "Pet not found"
+          description: "Animale not found"
         405:
           description: "Validation exception"
       security:
