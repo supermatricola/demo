@@ -12,7 +12,7 @@ info:
 host: "petstore.swagger.io"
 basePath: "/v2"
 tags:
-- name: "pet"
+- name: "animale"
   description: "Everything about your Pets"
   externalDocs:
     description: "Find out more"
